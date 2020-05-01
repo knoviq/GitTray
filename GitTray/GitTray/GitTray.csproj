@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2076D38C-3525-4A9F-B211-CC977F829363}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GitTray</RootNamespace>
+    <AssemblyName>GitTray</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons\Git.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\..\Executable\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GitTray.UI.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura.Fody">
+      <HintPath>..\..\..\BswmdValidator\packages\Costura.Fody.1.6.2\Costura.Fody.dll</HintPath>
+    </Reference>
+    <Reference Include="Fody">
+      <HintPath>..\..\..\BswmdValidator\packages\Fody.2.0.0\Fody.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2016.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.0.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataStructure\UsersGitConfiguration.cs" />
+    <Compile Include="DataStructure\RepoItem.cs" />
+    <Compile Include="DataStructure\GitStatusType.cs" />
+    <Compile Include="GitTrayDataSet.cs">
+      <DependentUpon>GitTrayDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GitTrayDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GitTrayDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GitTrayGitSettingsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GitTrayGitSettingsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GitTrayUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GitTrayUI.Designer.cs">
+      <DependentUpon>GitTrayUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RepositoryExplorerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RepositoryExplorerUI.Designer.cs">
+      <DependentUpon>RepositoryExplorerUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RepositoryWindowUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RepositoryWindowUI.Designer.cs">
+      <DependentUpon>RepositoryWindowUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingWindowUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SettingWindowUI.Designer.cs">
+      <DependentUpon>SettingWindowUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VersionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VersionUI.Designer.cs">
+      <DependentUpon>VersionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DirectoryExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\DirectoryExplorer.Designer.cs">
+      <DependentUpon>DirectoryExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\GitExtensions.cs" />
+    <Compile Include="Startup\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\GitTrayUI.resx">
+      <DependentUpon>GitTrayUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RepositoryExplorerUI.resx">
+      <DependentUpon>RepositoryExplorerUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RepositoryWindowUI.resx">
+      <DependentUpon>RepositoryWindowUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingWindowUI.resx">
+      <DependentUpon>SettingWindowUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VersionUI.resx">
+      <DependentUpon>VersionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\DirectoryExplorer.resx">
+      <DependentUpon>DirectoryExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="config\packages.config" />
+    <None Include="GitTrayDataSet.xsc">
+      <DependentUpon>GitTrayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GitTrayDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GitTrayDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GitTrayDataSet.xss">
+      <DependentUpon>GitTrayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GitTrayGitSettingsDataSet.xsc">
+      <DependentUpon>GitTrayGitSettingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GitTrayGitSettingsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GitTrayGitSettingsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GitTrayGitSettingsDataSet.xss">
+      <DependentUpon>GitTrayGitSettingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.PNG" />
+    <None Include="icons\stopped.png" />
+    <None Include="icons\play.png" />
+    <None Include="icons\pause.png" />
+    <None Include="icons\Search.png" />
+    <None Include="icons\power.png" />
+    <None Include="icons\tux.png" />
+    <None Include="icons\Settings.png" />
+    <None Include="icons\Gerrit.png" />
+    <None Include="icons\add.png" />
+    <None Include="icons\delete.png" />
+    <None Include="icons\backBtn.png" />
+    <Content Include="GitTray.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\Git.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
